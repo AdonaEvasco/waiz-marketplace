@@ -1,0 +1,739 @@
+/* css/junkshop.css - JUNKSHOP DASHBOARD STYLES */
+
+/* Junkshop Header */
+.junkshop-header {
+    background-color: var(--white);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid var(--gold);
+}
+
+.shop-info-actions {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.quick-stats {
+    display: flex;
+    gap: 20px;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    background-color: rgba(212, 175, 55, 0.1);
+    border-radius: 20px;
+    color: var(--dark-green);
+    font-weight: 500;
+}
+
+.stat i {
+    color: var(--gold);
+}
+
+/* Junkshop Sidebar */
+.junkshop-sidebar {
+    background-color: #1a2f1a;
+    color: var(--white);
+    border-right: none;
+}
+
+.junkshop-sidebar .sidebar-nav {
+    padding: 0;
+}
+
+.junkshop-sidebar .nav-item {
+    color: rgba(255, 255, 255, 0.8);
+    padding: 15px 25px;
+    border-radius: 0;
+    border-left: 4px solid transparent;
+}
+
+.junkshop-sidebar .nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    border-left-color: var(--gold);
+}
+
+.junkshop-sidebar .nav-item.active {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--white);
+    border-left-color: var(--gold);
+}
+
+.junkshop-sidebar .nav-item i {
+    color: var(--gold);
+}
+
+.junkshop-sidebar .badge {
+    background-color: var(--gold);
+    color: var(--dark-green);
+}
+
+/* Business Stats */
+.business-stats {
+    padding: 20px 25px;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin: 30px 20px 0;
+}
+
+.business-stats h3 {
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.stat-item i {
+    color: var(--gold);
+    font-size: 20px;
+    width: 30px;
+}
+
+.stat-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--white);
+}
+
+.stat-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Junkshop Content */
+.junkshop-content {
+    background-color: #f5f7f9;
+}
+
+/* Junkshop Banner */
+.junkshop-banner {
+    background: linear-gradient(135deg, var(--dark-green), #2d5a3d, var(--gold));
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease infinite;
+    color: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.junkshop-banner .welcome-content h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.junkshop-banner .welcome-content p {
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
+
+.shop-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.shop-rating i {
+    color: var(--gold);
+}
+
+.welcome-actions {
+    display: flex;
+    gap: 15px;
+}
+
+/* Map & Listings Section */
+.map-listings-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.map-container-wrapper {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    box-shadow: var(--shadow);
+}
+
+.large-map {
+    height: 500px;
+    width: 100%;
+    border-radius: var(--border-radius);
+    margin: 15px 0;
+    border: 1px solid var(--medium-gray);
+}
+
+.map-info {
+    font-size: 14px;
+    color: var(--text-gray);
+    font-weight: normal;
+    margin-left: 10px;
+}
+
+.map-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Nearby Listings */
+.nearby-listings {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+.listings-scroll {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 500px;
+    padding-right: 10px;
+}
+
+.listing-card {
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.listing-card:hover {
+    border-color: var(--dark-green);
+    transform: translateX(5px);
+}
+
+.listing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.listing-type {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.listing-type i {
+    color: var(--dark-green);
+    font-size: 20px;
+}
+
+.listing-type h3 {
+    font-size: 16px;
+    color: var(--dark-gray);
+}
+
+.listing-distance {
+    background-color: var(--dark-green);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.listing-details {
+    margin-bottom: 15px;
+}
+
+.listing-details p {
+    color: var(--dark-gray);
+    margin-bottom: 5px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.listing-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 1px solid var(--medium-gray);
+    margin-bottom: 15px;
+}
+
+.price-label {
+    font-size: 12px;
+    color: var(--text-gray);
+}
+
+.price-range {
+    font-weight: 600;
+    color: var(--dark-green);
+    font-size: 16px;
+}
+
+.listing-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Map Legend */
+.map-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 15px;
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    margin-top: 15px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.legend-icon {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.legend-icon.your-shop {
+    background-color: var(--gold);
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px var(--gold);
+}
+
+.legend-icon.plastic { background-color: #3498db; }
+.legend-icon.paper { background-color: #2ecc71; }
+.legend-icon.metal { background-color: #e74c3c; }
+.legend-icon.service-area {
+    background-color: transparent;
+    border: 2px dashed var(--dark-green);
+}
+
+/* Offers & Pickups Section */
+.offers-pickups-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.my-offers, .todays-pickups {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    box-shadow: var(--shadow);
+}
+
+/* Offers Table */
+.offers-table-container {
+    overflow-x: auto;
+}
+
+.offers-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.offers-table thead {
+    background-color: var(--light-gray);
+}
+
+.offers-table th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--dark-green);
+    border-bottom: 2px solid var(--medium-gray);
+}
+
+.offers-table td {
+    padding: 15px;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+.offers-table tbody tr:hover {
+    background-color: rgba(26, 71, 42, 0.05);
+}
+
+.listing-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.listing-info i {
+    color: var(--dark-green);
+    font-size: 18px;
+}
+
+.listing-info strong {
+    display: block;
+    color: var(--dark-gray);
+}
+
+.listing-info small {
+    color: var(--text-gray);
+    font-size: 12px;
+}
+
+.offer-amount {
+    font-weight: 700;
+    color: var(--dark-green);
+    font-size: 18px;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status-badge.pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-badge.accepted {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-badge.counter {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    color: var(--dark-gray);
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 5px;
+    transition: var(--transition);
+}
+
+.btn-icon:hover {
+    background-color: var(--light-gray);
+    color: var(--dark-green);
+}
+
+/* Pickups List */
+.pickups-list {
+    margin-top: 20px;
+}
+
+.pickup-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+    transition: var(--transition);
+}
+
+.pickup-item:hover {
+    border-color: var(--dark-green);
+    background-color: rgba(26, 71, 42, 0.05);
+}
+
+.pickup-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.pickup-time .time {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark-green);
+}
+
+.pickup-time .duration {
+    font-size: 12px;
+    color: var(--text-gray);
+    background-color: var(--light-gray);
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.pickup-details {
+    flex: 1;
+}
+
+.pickup-details h4 {
+    color: var(--dark-green);
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.pickup-details p {
+    color: var(--dark-gray);
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pickup-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Make Offer Modal */
+.listing-info-modal {
+    background-color: rgba(212, 175, 55, 0.1);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+}
+
+.listing-type-large {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.listing-type-large i {
+    font-size: 40px;
+    color: var(--dark-green);
+}
+
+.listing-type-large h3 {
+    color: var(--dark-green);
+    margin-bottom: 10px;
+}
+
+.listing-type-large p {
+    color: var(--dark-gray);
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input-with-suffix {
+    position: relative;
+}
+
+.input-with-suffix input {
+    padding-right: 100px;
+}
+
+.input-suffix {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-gray);
+    font-size: 14px;
+}
+
+.price-breakdown {
+    margin-top: 8px;
+    color: var(--text-gray);
+    font-size: 13px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.checkbox-label input {
+    accent-color: var(--dark-green);
+}
+
+.checkbox-label a {
+    color: var(--dark-green);
+    font-weight: 600;
+}
+
+/* Service Area Modal */
+.service-map {
+    height: 400px;
+    width: 100%;
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+    border: 1px solid var(--medium-gray);
+}
+
+.service-controls {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--medium-gray);
+}
+
+.radius-control {
+    margin-bottom: 20px;
+}
+
+.radius-control label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--dark-green);
+}
+
+.radius-control input[type="range"] {
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: var(--medium-gray);
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.radius-control input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--dark-green);
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .map-listings-section,
+    .offers-pickups-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .shop-info-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    .junkshop-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .junkshop-sidebar {
+        display: none;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .junkshop-banner {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .welcome-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .welcome-actions .btn {
+        width: 100%;
+    }
+    
+    .map-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .map-controls select,
+    .map-controls .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .junkshop-content {
+        padding: 15px;
+    }
+    
+    .offers-table {
+        font-size: 14px;
+    }
+    
+    .pickup-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .pickup-time {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .listing-actions {
+        flex-direction: column;
+    }
+    
+    .listing-actions .btn {
+        width: 100%;
+    }
+}
