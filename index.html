@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAIZ - Sustainable Waste Marketplace</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/landing.css">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-recycle"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">WAIZ</span>
+                    <span class="logo-sub">Waste to Wealth</span>
+                </div>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#benefits" class="nav-link">Benefits</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="#" class="nav-link" onclick="showAuthModal('login')">Login</a>
+                <a href="#" class="nav-btn" onclick="scrollToSignup()">Get Started</a>
+            </div>
+            
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Turn <span class="highlight">Waste</span> Into<br>
+                    <span class="highlight">Wealth</span>
+                </h1>
+                <p class="hero-description">
+                    Connect with local junkshops and recycle your waste easily. 
+                    Earn money while saving the environment.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">2,500+</span>
+                        <span class="stat-label">Happy Users</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label">Junkshops</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50T+</span>
+                        <span class="stat-label">Kg Recycled</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="scrollToSignup()">
+                        Start Recycling <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn btn-secondary" onclick="showVideo()">
+                        <i class="fas fa-play"></i> Watch Demo
+                    </button>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <!-- App preview will go here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Selection Section -->
+    <section class="selection-section" id="signup">
+        <div class="section-header">
+            <h2>Join WAIZ Today</h2>
+            <p>Choose how you want to participate</p>
+        </div>
+        
+        <div class="selection-cards">
+            <!-- Household Card -->
+            <div class="selection-card household">
+                <div class="card-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>For Households</h3>
+                <p>Sell your recyclable waste to nearby junkshops</p>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Easy listing creation</li>
+                    <li><i class="fas fa-check"></i> Get multiple offers</li>
+                    <li><i class="fas fa-check"></i> Schedule pickups</li>
+                    <li><i class="fas fa-check"></i> Secure payments</li>
+                </ul>
+                <a href="household.html" class="btn btn-primary">
+                    Join as Household
+                </a>
+            </div>
+            
+            <!-- Junkshop Card -->
+            <div class="selection-card junkshop">
+                <div class="card-icon">
+                    <i class="fas fa-store"></i>
+                </div>
+                <h3>For Junkshops</h3>
+                <p>Source quality recyclables from households</p>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Find nearby listings</li>
+                    <li><i class="fas fa-check"></i> Make competitive offers</li>
+                    <li><i class="fas fa-check"></i> Efficient pickups</li>
+                    <li><i class="fas fa-check"></i> Grow your business</li>
+                </ul>
+                <a href="junkshop.html" class="btn btn-secondary">
+                    Join as Junkshop
+                </a>
+            </div>
+        </div>
+        
+        <div class="already-account">
+            <p>Already have an account? <a href="#" onclick="showAuthModal('login')">Login here</a></p>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="steps-section" id="how-it-works">
+        <div class="section-header">
+            <h2>How WAIZ Works</h2>
+            <p>Simple steps to sustainable waste management</p>
+        </div>
+        
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <i class="fas fa-upload"></i>
+                    <h3>List Your Waste</h3>
+                    <p>Upload photos and details of your recyclable materials</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <i class="fas fa-exchange-alt"></i>
+                    <h3>Receive Offers</h3>
+                    <p>Local junkshops make competitive offers for your materials</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <i class="fas fa-truck"></i>
+                    <h3>Schedule Pickup</h3>
+                    <p>Choose the best offer and schedule a convenient pickup</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>Get Paid</h3>
+                    <p>Receive instant payment once your materials are collected</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authentication Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeAuthModal()">&times;</span>
+            <div id="authContent">
+                <!-- Content will be loaded by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content video-modal">
+            <span class="close-modal" onclick="closeVideoModal()">&times;</span>
+            <div class="video-placeholder">
+                <i class="fas fa-play-circle"></i>
+                <h3>WAIZ Platform Demo</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/auth.js"></script>
+    <script src="js/landing.js"></script>
+</body>
+</html>
