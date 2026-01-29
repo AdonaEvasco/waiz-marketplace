@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junkshop Dashboard - WAIZ</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/junkshop.css">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet CSS for Maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <!-- Dashboard Header -->
+    <header class="dashboard-header junkshop-header">
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="dashboard-logo">
+                <a href="index.html" class="logo-link">
+                    <div class="logo-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main">WAIZ</span>
+                        <span class="logo-sub">Junkshop</span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Shop Info & Actions -->
+            <div class="shop-info-actions">
+                <div class="quick-stats">
+                    <div class="stat">
+                        <i class="fas fa-eye"></i>
+                        <span>24 Listings</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-handshake"></i>
+                        <span>8 Offers</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-truck"></i>
+                        <span>5 Pickups</span>
+                    </div>
+                </div>
+                
+                <!-- User Info -->
+                <div class="user-info">
+                    <div class="user-notifications">
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-count">5</span>
+                        </button>
+                    </div>
+                    
+                    <div class="user-profile">
+                        <div class="user-avatar shop-avatar">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <div class="user-details">
+                            <span class="user-name">Green Junk Shop</span>
+                            <span class="user-location">
+                                <i class="fas fa-map-marker-alt"></i> Quezon City
+                            </span>
+                        </div>
+                        <div class="user-menu-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        
+                        <!-- User Dropdown -->
+                        <div class="user-dropdown">
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-store"></i> Shop Profile
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-cog"></i> Settings
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-chart-line"></i> Analytics
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="index.html" class="dropdown-item logout">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Layout -->
+    <div class="dashboard-layout junkshop-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="dashboard-sidebar junkshop-sidebar">
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-search"></i>
+                    <span>Find Listings</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <span>My Offers</span>
+                    <span class="badge">8</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Pickup Schedule</span>
+                    <span class="badge">5</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-comments"></i>
+                    <span>Messages</span>
+                    <span class="badge">3</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-boxes"></i>
+                    <span>Inventory</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <!-- Business Stats -->
+            <div class="business-stats">
+                <h3>This Month</h3>
+                <div class="stat-item">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <div class="stat-details">
+                        <span class="stat-value">₱12,450</span>
+                        <span class="stat-label">Revenue</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-weight-hanging"></i>
+                    <div class="stat-details">
+                        <span class="stat-value">280 kg</span>
+                        <span class="stat-label">Collected</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <div class="stat-details">
+                        <span class="stat-value">18</span>
+                        <span class="stat-label">New Customers</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-content junkshop-content">
+            <!-- Welcome Banner -->
+            <div class="welcome-banner junkshop-banner">
+                <div class="welcome-content">
+                    <h1>Welcome, Green Junk Shop!</h1>
+                    <p>You have 3 high-priority listings nearby and 5 scheduled pickups today</p>
+                    <div class="shop-rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.7 Rating • 28 Reviews</span>
+                    </div>
+                </div>
+                <div class="welcome-actions">
+                    <button class="btn btn-primary" onclick="showNewOfferModal()">
+                        <i class="fas fa-hand-holding-usd"></i> Make New Offer
+                    </button>
+                    <button class="btn btn-secondary" onclick="viewServiceArea()">
+                        <i class="fas fa-map-marked-alt"></i> View Service Area
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>24</h3>
+                        <p>Active Listings</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>8</h3>
+                        <p>Pending Offers</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>5</h3>
+                        <p>Scheduled Pickups</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>₱12,450</h3>
+                        <p>This Month's Revenue</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map & Nearby Listings Section -->
+            <div class="map-listings-section">
+                <!-- Map Container -->
+                <div class="map-container-wrapper">
+                    <div class="section-header">
+                        <h2>
+                            <i class="fas fa-map-marked-alt"></i> Nearby Listings
+                            <span class="map-info">Showing listings within your 10km service radius</span>
+                        </h2>
+                        <div class="map-controls">
+                            <select class="form-control" onchange="filterListings(this.value)">
+                                <option value="all">All Materials</option>
+                                <option value="plastic">Plastic</option>
+                                <option value="paper">Paper</option>
+                                <option value="metal">Metal</option>
+                                <option value="glass">Glass</option>
+                            </select>
+                            <button class="btn btn-outline" onclick="refreshMap()">
+                                <i class="fas fa-sync-alt"></i> Refresh
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="map" class="large-map"></div>
+                    
+                    <div class="map-legend">
+                        <div class="legend-item">
+                            <span class="legend-icon your-shop"></span>
+                            Your Shop
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-icon plastic"></span>
+                            Plastic
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-icon paper"></span>
+                            Paper
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-icon metal"></span>
+                            Metal
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-icon service-area"></span>
+                            Service Area
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Nearby Listings -->
+                <div class="nearby-listings">
+                    <div class="section-header">
+                        <h2>Available Listings</h2>
+                        <div class="sort-controls">
+                            <select class="form-control" onchange="sortListings(this.value)">
+                                <option value="distance">Sort by Distance</option>
+                                <option value="price">Sort by Price</option>
+                                <option value="newest">Sort by Newest</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="listings-scroll">
+                        <!-- Listing Card 1 -->
+                        <div class="listing-card" onclick="focusOnListing(1)">
+                            <div class="listing-header">
+                                <div class="listing-type">
+                                    <i class="fas fa-recycle"></i>
+                                    <h3>Plastic Bottles</h3>
+                                </div>
+                                <span class="listing-distance">2.3 km</span>
+                            </div>
+                            
+                            <div class="listing-details">
+                                <p><i class="fas fa-weight-hanging"></i> 12 kg</p>
+                                <p><i class="fas fa-user"></i> Sarah J.</p>
+                                <p><i class="fas fa-clock"></i> Posted 2h ago</p>
+                            </div>
+                            
+                            <div class="listing-price">
+                                <span class="price-label">Expected:</span>
+                                <span class="price-range">₱300-₱400</span>
+                            </div>
+                            
+                            <div class="listing-actions">
+                                <button class="btn btn-primary" onclick="makeOffer(1)">
+                                    <i class="fas fa-hand-holding-usd"></i> Make Offer
+                                </button>
+                                <button class="btn btn-outline" onclick="viewDetails(1)">
+                                    <i class="fas fa-eye"></i> Details
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Listing Card 2 -->
+                        <div class="listing-card" onclick="focusOnListing(2)">
+                            <div class="listing-header">
+                                <div class="listing-type">
+                                    <i class="fas fa-newspaper"></i>
+                                    <h3>Old Newspapers</h3>
+                                </div>
+                                <span class="listing-distance">3.1 km</span>
+                            </div>
+                            
+                            <div class="listing-details">
+                                <p><i class="fas fa-weight-hanging"></i> 8 kg</p>
+                                <p><i class="fas fa-user"></i> Juan D.</p>
+                                <p><i class="fas fa-clock"></i> Posted 5h ago</p>
+                            </div>
+                            
+                            <div class="listing-price">
+                                <span class="price-label">Expected:</span>
+                                <span class="price-range">₱160-₱200</span>
+                            </div>
+                            
+                            <div class="listing-actions">
+                                <button class="btn btn-primary" onclick="makeOffer(2)">
+                                    <i class="fas fa-hand-holding-usd"></i> Make Offer
+                                </button>
+                                <button class="btn btn-outline" onclick="viewDetails(2)">
+                                    <i class="fas fa-eye"></i> Details
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Listing Card 3 -->
+                        <div class="listing-card" onclick="focusOnListing(3)">
+                            <div class="listing-header">
+                                <div class="listing-type">
+                                    <i class="fas fa-cube"></i>
+                                    <h3>Aluminum Cans</h3>
+                                </div>
+                                <span class="listing-distance">4.5 km</span>
+                            </div>
+                            
+                            <div class="listing-details">
+                                <p><i class="fas fa-weight-hanging"></i> 5 kg</p>
+                                <p><i class="fas fa-user"></i> Maria R.</p>
+                                <p><i class="fas fa-clock"></i> Posted 1d ago</p>
+                            </div>
+                            
+                            <div class="listing-price">
+                                <span class="price-label">Expected:</span>
+                                <span class="price-range">₱250-₱300</span>
+                            </div>
+                            
+                            <div class="listing-actions">
+                                <button class="btn btn-primary" onclick="makeOffer(3)">
+                                    <i class="fas fa-hand-holding-usd"></i> Make Offer
+                                </button>
+                                <button class="btn btn-outline" onclick="viewDetails(3)">
+                                    <i class="fas fa-eye"></i> Details
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Listing Card 4 -->
+                        <div class="listing-card" onclick="focusOnListing(4)">
+                            <div class="listing-header">
+                                <div class="listing-type">
+                                    <i class="fas fa-glass-whiskey"></i>
+                                    <h3>Glass Bottles</h3>
+                                </div>
+                                <span class="listing-distance">1.8 km</span>
+                            </div>
+                            
+                            <div class="listing-details">
+                                <p><i class="fas fa-weight-hanging"></i> 15 kg</p>
+                                <p><i class="fas fa-user"></i> Carlos L.</p>
+                                <p><i class="fas fa-clock"></i> Posted 3h ago</p>
+                            </div>
+                            
+                            <div class="listing-price">
+                                <span class="price-label">Expected:</span>
+                                <span class="price-range">₱225-₱300</span>
+                            </div>
+                            
+                            <div class="listing-actions">
+                                <button class="btn btn-primary" onclick="makeOffer(4)">
+                                    <i class="fas fa-hand-holding-usd"></i> Make Offer
+                                </button>
+                                <button class="btn btn-outline" onclick="viewDetails(4)">
+                                    <i class="fas fa-eye"></i> Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- My Offers & Pickups Section -->
+            <div class="offers-pickups-section">
+                <!-- My Offers -->
+                <div class="my-offers">
+                    <div class="section-header">
+                        <h2>My Pending Offers</h2>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    
+                    <div class="offers-table-container">
+                        <table class="offers-table">
+                            <thead>
+                                <tr>
+                                    <th>Listing</th>
+                                    <th>Customer</th>
+                                    <th>My Offer</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="listing-info">
+                                            <i class="fas fa-recycle"></i>
+                                            <div>
+                                                <strong>Plastic Bottles (12kg)</strong>
+                                                <small>2.3 km away</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Sarah J.</td>
+                                    <td class="offer-amount">₱350</td>
+                                    <td>
+                                        <span class="status-badge pending">Pending</span>
+                                    </td>
+                                    <td>
+                                        <button class="btn-icon" onclick="editOffer(1)">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon" onclick="withdrawOffer(1)">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <div class="listing-info">
+                                            <i class="fas fa-newspaper"></i>
+                                            <div>
+                                                <strong>Old Newspapers (8kg)</strong>
+                                                <small>3.1 km away</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Juan D.</td>
+                                    <td class="offer-amount">₱180</td>
+                                    <td>
+                                        <span class="status-badge accepted">Accepted</span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-outline" onclick="schedulePickup(1)">
+                                            <i class="fas fa-calendar-alt"></i> Schedule
+                                        </button>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <div class="listing-info">
+                                            <i class="fas fa-cube"></i>
+                                            <div>
+                                                <strong>Aluminum Cans (5kg)</strong>
+                                                <small>4.5 km away</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Maria R.</td>
+                                    <td class="offer-amount">₱280</td>
+                                    <td>
+                                        <span class="status-badge counter">Counter: ₱300</span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-outline" onclick="respondToCounter(1)">
+                                            <i class="fas fa-reply"></i> Respond
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Today's Pickups -->
+                <div class="todays-pickups">
+                    <div class="section-header">
+                        <h2>Today's Pickup Schedule</h2>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    
+                    <div class="pickups-list">
+                        <!-- Pickup Item 1 -->
+                        <div class="pickup-item">
+                            <div class="pickup-time">
+                                <span class="time">09:00 AM</span>
+                                <span class="duration">1 hour</span>
+                            </div>
+                            <div class="pickup-details">
+                                <h4>Old Newspapers - Juan D.</h4>
+                                <p>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    123 Main St, Quezon City
+                                </p>
+                                <p>
+                                    <i class="fas fa-phone"></i>
+                                    0917-123-4567
+                                </p>
+                            </div>
+                            <div class="pickup-actions">
+                                <button class="btn-icon" onclick="showRoute(1)">
+                                    <i class="fas fa-route"></i>
+                                </button>
+                                <button class="btn-icon" onclick="callCustomer(1)">
+                                    <i class="fas fa-phone"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Pickup Item 2 -->
+                        <div class="pickup-item">
+                            <div class="pickup-time">
+                                <span class="time">11:30 AM</span>
+                                <span class="duration">45 mins</span>
+                            </div>
+                            <div class="pickup-details">
+                                <h4>Plastic Bottles - Sarah J.</h4>
+                                <p>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    456 Oak St, Quezon City
+                                </p>
+                                <p>
+                                    <i class="fas fa-phone"></i>
+                                    0922-987-6543
+                                </p>
+                            </div>
+                            <div class="pickup-actions">
+                                <button class="btn-icon" onclick="showRoute(2)">
+                                    <i class="fas fa-route"></i>
+                                </button>
+                                <button class="btn-icon" onclick="callCustomer(2)">
+                                    <i class="fas fa-phone"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Pickup Item 3 -->
+                        <div class="pickup-item">
+                            <div class="pickup-time">
+                                <span class="time">02:00 PM</span>
+                                <span class="duration">1 hour</span>
+                            </div>
+                            <div class="pickup-details">
+                                <h4>Cardboard Boxes - Ana S.</h4>
+                                <p>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    789 Pine St, Quezon City
+                                </p>
+                                <p>
+                                    <i class="fas fa-phone"></i>
+                                    0918-555-1234
+                                </p>
+                            </div>
+                            <div class="pickup-actions">
+                                <button class="btn-icon" onclick="showRoute(3)">
+                                    <i class="fas fa-route"></i>
+                                </button>
+                                <button class="btn-icon" onclick="callCustomer(3)">
+                                    <i class="fas fa-phone"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Make Offer Modal -->
+    <div class="modal" id="makeOfferModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeMakeOfferModal()">&times;</span>
+            
+            <h2><i class="fas fa-hand-holding-usd"></i> Make an Offer</h2>
+            
+            <!-- Listing Info -->
+            <div class="listing-info-modal">
+                <div class="listing-type-large">
+                    <i class="fas fa-recycle"></i>
+                    <div>
+                        <h3 id="offerListingTitle">Plastic Bottles (12 kg)</h3>
+                        <p><i class="fas fa-user"></i> <span id="offerListingUser">Sarah J.</span></p>
+                        <p><i class="fas fa-map-marker-alt"></i> <span id="offerListingDistance">2.3 km away</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Offer Form -->
+            <form id="offerForm" onsubmit="submitOffer(event)">
+                <div class="form-group">
+                    <label for="offerAmount">Offer Amount (₱)</label>
+                    <div class="input-with-suffix">
+                        <input type="number" id="offerAmount" class="form-control" placeholder="Enter amount" required>
+                        <span class="input-suffix">per listing</span>
+                    </div>
+                    <div class="price-breakdown">
+                        <small>
+                            Price per kg: <span id="pricePerKg">₱0.00</span> •
+                            Total: <span id="totalPrice">₱0.00</span>
+                        </small>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="offerMessage">Message to Seller</label>
+                    <textarea id="offerMessage" class="form-control" rows="3" placeholder="Include pickup details, timing, or any special notes..."></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pickupDate">Preferred Pickup Date</label>
+                        <input type="date" id="pickupDate" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pickupTime">Preferred Time</label>
+                        <select id="pickupTime" class="form-control" required>
+                            <option value="">Select time</option>
+                            <option value="morning">Morning (8AM-12PM)</option>
+                            <option value="afternoon">Afternoon (12PM-5PM)</option>
+                            <option value="evening">Evening (5PM-8PM)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="agreeTerms" required>
+                        <span>I agree to the <a href="#" onclick="showTerms()">terms and conditions</a> of making offers</span>
+                    </label>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" onclick="closeMakeOfferModal()">
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Submit Offer
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Service Area Modal -->
+    <div class="modal" id="serviceAreaModal">
+        <div class="modal-content wide-modal">
+            <span class="close-modal" onclick="closeServiceAreaModal()">&times;</span>
+            
+            <h2><i class="fas fa-map-marked-alt"></i> Your Service Area</h2>
+            
+            <div id="serviceAreaMap" class="service-map"></div>
+            
+            <div class="service-controls">
+                <div class="radius-control">
+                    <label for="serviceRadius">Service Radius: <span id="radiusValue">10</span> km</label>
+                    <input type="range" id="serviceRadius" min="5" max="30" value="10" step="1" oninput="updateServiceRadius(this.value)">
+                </div>
+                
+                <div class="form-group">
+                    <label for="serviceAreas">Service Areas (Cities/Barangays)</label>
+                    <textarea id="serviceAreas" class="form-control" rows="3" placeholder="List areas you serve (e.g., Quezon City, Manila, Makati...)"></textarea>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline" onclick="closeServiceAreaModal()">
+                        Cancel
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="saveServiceArea()">
+                        <i class="fas fa-save"></i> Save Service Area
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/maps.js"></script>
+    <script src="js/junkshop.js"></script>
+</body>
+</html>
